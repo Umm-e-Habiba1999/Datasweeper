@@ -58,7 +58,7 @@ if uploaded_files:
 
 
 st.subheader("🎯Select Coloumn to keep")
-columns =st.multiselect(f"Choose column for {file.name}" ,df.columns, default=df.columns)
+columns =st.multiselect(f"Choose columns for {file.name}" ,df.columns, default=df.columns)
 df = df[columns]
 
 #data visualization
