@@ -57,7 +57,7 @@ if uploaded_files:
                     st.write("✔Missing values have been filled!")
 
 
-st.subheader("🎯Select Coloumn to keep")
+st.subheader("🎯Select Columns to keep")
 columns =st.multiselect(f"Choose columns for {file.name}" ,df.columns, default=df.columns)
 df = df[columns]
 
