@@ -61,6 +61,16 @@ st.subheader("🎯Select Column to keep")
 columns =st.multiselect(f"Choose columns for {file.name}" ,df.columns, default=df.columns)
 df = df[columns]
 
+# File uploader
+file = st.file_uploader("Upload a CSV file", type=["csv"])
+
+if file is not None:
+    df = pd.read_csv(file)  # Read CSV file into a DataFrame
+    st.write("Preview of Data:", df.head())  # Show some data
+    columns = st.multiselect(f"Choose columns for {file.name}", df.columns.tolist(), default=df.columns.tolist())
+else:
+    st.warning("Please upload a file first.")  # Handle case where no file is uploaded
+
 #data visualization
 st.subheader("📊Data Visualization")
 if st.checkbox(f"Show visualization for {file.name}"):
